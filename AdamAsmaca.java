@@ -22,9 +22,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author HP
  */
-public class Odev_2311012037 extends javax.swing.JFrame {
+public class AdamAsmaca extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Odev_2311012037.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AdamAsmaca.class.getName());
     
     String TXT_YOLU = "C:\\P2Oyun\\TXTDosyalar\\";
     String RESIM_YOLU = "C:\\P2Oyun\\Resimler\\";
@@ -40,10 +40,10 @@ public class Odev_2311012037 extends javax.swing.JFrame {
     javax.swing.Timer zamanlayici;
 
     /**
-     * Creates new form Odev_2311012037
+     * Creates new form AdamAsmaca
      * @throws java.io.IOException
      */
-    public Odev_2311012037() throws IOException {
+    public AdamAsmaca() throws IOException {
         initComponents();
         
         txtHarf.setEnabled(false);
@@ -531,9 +531,9 @@ public class Odev_2311012037 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
-                new Odev_2311012037().setVisible(true);
+                new AdamAsmaca().setVisible(true);
             } catch (IOException ex) {
-                System.getLogger(Odev_2311012037.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                System.getLogger(AdamAsmaca.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
         });
     }
