@@ -1,24 +1,48 @@
-# 🎮 Adam Asmaca - Java Swing
+# 🎯 Adam Asmaca (Hangman) - Java Swing Projesi
 
-Bu proje, Java ve Swing GUI kullanılarak geliştirilmiş masaüstü tabanlı bir Adam Asmaca oyunudur. Üniversite proje ödevi kapsamında geliştirilmiş olup, dosya okuma/yazma işlemleri, dinamik arayüz yönetimi ve temel şifreleme mantıklarını içermektedir.
+Bu proje, Java ve Swing GUI kullanılarak geliştirilmiş, masaüstü tabanlı ve dosya yönetim sistemine sahip bir Adam Asmaca oyunudur. Üniversite proje ödevi kapsamında, nesne yönelimli programlama (OOP), olay güdümlü programlama (Event-Driven) ve dinamik arayüz yönetimi mimarilerini pratik etmek amacıyla geliştirilmiştir.
 
-## 🚀 Özellikler
+![Ana Oyun Ekranı](Images/oyun_ekrani.png) 
 
-- **Şifreli Giriş Sistemi:** Oyuna girişler ve log/skor temizleme işlemleri belirlenen bir şifre ile korunmaktadır.
-- **Dinamik Arayüz (JTabbedPane):** Oyun, Skorlar ve Loglar olmak üzere 3 farklı sekmeden oluşur.
-- **Dosya İşlemleri:** - `kelimeler.txt`: Rastgele seçilen kelimelerin tutulduğu kaynak.
-  - `oyunlar.txt`: Oynanan oyunların süre ve kazanma/kaybetme durumlarının kaydedildiği dosya.
-  - `log.txt`: Uygulamaya yapılan tüm başarılı/başarısız girişlerin saatleriyle tutulduğu kayıt defteri.
-- **Zamanlayıcı:** Oyun esnasında geçen süreyi saniye bazında takip eden sayaç.
+---
 
-## 📁 Dosya ve Klasör Yapısı
-Uygulamanın çalışması için bilgisayarın `C:\` sürücüsünde aşağıdaki yapının bulunması gerekmektedir:
+## 🚀 Proje Özellikleri ve Dinamikleri
+
+Klasik bir adam asmaca oyununun ötesinde, proje arka planda çeşitli veri kayıt ve güvenlik algoritmaları barındırmaktadır:
+
+* **Şifreli Giriş Sistemi:** Uygulama açıldığında `sifre.txt` üzerinden doğrulama yapar. İlk girişte şifre oluşturulur. 3 hatalı girişte sistem kendini kilitler.
+* **Dinamik UI Üretimi:** Seçilen kelimenin harf sayısına göre anlık olarak `JPanel` içerisine `JLabel` nesneleri (yıldızlar) türetilir.
+* **Loglama Mimarisi:** Sisteme yapılan her giriş denemesi, tarih ve saat damgasıyla (timestamp) birlikte `log.txt` dosyasına "Append (Ekleme)" modunda kaydedilir.
+* **Skor ve Zaman Takibi:** Oyun esnasında bir `javax.swing.Timer` saniye bazında sayım yapar. Oyun bittiğinde sonuç ve süre `oyunlar.txt` dosyasına işlenir.
+* **Yetkili Temizleme:** Log ve skor tablolarını arayüzden temizlemek, ana şifrenin tekrar girilmesini gerektirir.
+
+---
+
+## 📸 Ekran Görüntüleri
+
+### Sistem Giriş ve Güvenlik
+![Şifre Ekranı](Images/giris_ekrani.png)
+> *Sisteme izinsiz girişleri ve skor tablosuna müdahaleyi engelleyen şifre ekranı.*
+
+### Skor ve Log Takibi (JTable)
+![Skor Ekranı](Images/skor_ekrani.png)
+> *Geçmiş oyunların süre ve sonuç bazlı listelendiği, dışarıdan müdahaleye (düzenlemeye) kapalı tablo mimarisi.*
+
+---
+
+## 📁 Dosya ve Klasör Hiyerarşisi
+
+Uygulamanın sorunsuz çalışabilmesi ve kaynakların (resim/metin) doğru okunabilmesi için bilgisayarın `C:\` dizininde aşağıdaki dosya hiyerarşisinin bulunması şarttır. Proje kodları bu yolları (Class Variable) sabit değişkenler olarak referans alır.
+
 ```text
 C:\
 └── P2Oyun\
-    ├── Resimler\ (1.jpg - 11.jpg arası adam asmaca görselleri)
+    ├── Resimler\ 
+    │   ├── 1.jpg
+    │   ├── ...
+    │   └── 11.jpg
     └── TXTDosyalar\
-        ├── kelimeler.txt
-        ├── sifre.txt
-        ├── log.txt
-        └── oyunlar.txt
+        ├── kelimeler.txt (Oyunun kelime havuzu - En az 6 harfli 30 kelime)
+        ├── sifre.txt     (Giriş şifresinin tutulduğu alan)
+        ├── log.txt       (Sistem hareketlerinin tutulduğu alan)
+        └── oyunlar.txt   (Maç sonuçlarının tutulduğu alan)
